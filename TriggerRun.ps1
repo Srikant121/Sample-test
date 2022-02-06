@@ -1,0 +1,3 @@
+﻿$Trigger1 = New-ScheduledTaskTrigger -Once -At 12:35pm -RepetitionDuration  (New-TimeSpan -Hours 13)  -RepetitionInterval  (New-TimeSpan -Hours 2 -Minutes 30)
+$Action1= New-ScheduledTaskAction -Execute "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -Argument "-File K:\PerfSDK\PerfSDKLocalDirectory\SampleProject\Final_Script.ps1" -WorkingDirectory "K:\PerfSDK\PerfSDKLocalDirectory\SampleProject"
+Register-ScheduledTask -TaskName "ScheduleRun" -Trigger $Trigger1 -Action $Action1 -RunLevel Highest –Force # Specify the name of the task
